@@ -1,0 +1,29 @@
+<section data-ng-controller="AutorsController" data-ng-init="find()">
+    <div class="page-header">
+        <h1>Autors</h1>
+    </div>
+    <div class="list-group">
+        <a data-ng-repeat="autor in autors" data-ng-href="#!/autors/{{autor._id}}" class="list-group-item">
+			
+			
+			<div class="row">
+				<div class="col-md-2">
+					<img src="modules/autors/img/{{autor.foto}}">
+				</div>
+				<div class="col-md-10">
+					<h4 class="list-group-item-heading text-center" data-ng-bind="autor.name"></h4>
+					<div>
+						<blockquote>
+							<p data-ng-bind="autor.perfil"></p>
+						</blockquote>
+						
+						<p class="text-right" data-ng-bind="autor.email"></p>
+					</div>
+				</div>
+			</div>
+        </a>
+    </div>
+    <div class="alert alert-warning text-center" data-ng-hide="!autors.$resolved || autors.length">
+    	No Autors yet, why don't you <a href="/#!/autors/create">create one</a>?
+    </div>
+</section>

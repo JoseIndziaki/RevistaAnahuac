@@ -1,0 +1,19 @@
+<section data-ng-controller="EdicionsController" data-ng-init="find()">
+    <div class="page-header">
+        <h1>Edicions</h1>
+    </div>
+    <div class="list-group">
+        <a data-ng-repeat="edicion in edicions" data-ng-href="#!/edicions/{{edicion._id}}" class="list-group-item">
+			<small class="list-group-item-text">
+				Posted on
+				<span data-ng-bind="edicion.created | date:'medium'"></span>
+				by
+				<span data-ng-bind="edicion.user.displayName"></span>
+			</small>
+			<h4 class="list-group-item-heading" data-ng-bind="edicion.name"></h4>
+        </a>
+    </div>
+    <div class="alert alert-warning text-center" data-ng-hide="!edicions.$resolved || edicions.length">
+    	No Edicions yet, why don't you <a href="/#!/edicions/create">create one</a>?
+    </div>
+</section>
